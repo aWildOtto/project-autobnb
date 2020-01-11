@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boardpage.component.scss']
 })
 export class BoardpageComponent implements OnInit {
+  projName = '';
 
   constructor() { }
 
