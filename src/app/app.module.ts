@@ -10,12 +10,11 @@ import { OptionCardComponent } from './option-card/option-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { BoardpageModule } from './boardpage/boardpage.module';
+import { HomepageModule } from './homepage/homepage.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
-    BoardpageComponent,
     NavBarComponent,
     OptionCardComponent
   ],
@@ -24,7 +23,8 @@ import { BoardpageModule } from './boardpage/boardpage.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    BoardpageModule
+    BoardpageModule,
+    HomepageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

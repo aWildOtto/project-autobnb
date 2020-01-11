@@ -11,8 +11,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatToolbarModule,
     ],
     exports: [
-    MatInputModule,
-    BrowserAnimationsModule
+        MatInputModule,
+        BrowserAnimationsModule,
+        MatToolbarModule
     ]
 })
 export class MaterialModule { }

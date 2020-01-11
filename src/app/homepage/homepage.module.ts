@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoardpageRoutingModule } from './boardpage-routing.module';
+
+import { HomepageRoutingModule } from './homepage-routing.module';
+import { HomepageComponent } from './homepage.component';
 import { MaterialModule } from '../material.module';
-import { BoardpageComponent } from './boardpage.component';
 
 
 @NgModule({
   declarations: [
-    BoardpageComponent
+    HomepageComponent
   ],
   imports: [
     CommonModule,
-    BoardpageRoutingModule,
+    HomepageRoutingModule,
     MaterialModule,
   ]
 })
-export class BoardpageModule { }
+export class HomepageModule { }
