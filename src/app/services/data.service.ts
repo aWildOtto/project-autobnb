@@ -5,7 +5,7 @@ import {
   AngularFirestoreDocument
 } from 'angularfire2/firestore';
 
-import { Option } from '../models/options';
+import { Board } from '../models';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
 
@@ -14,8 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  Options: AngularFirestoreCollection<Option>;
-  Board: AngularFirestoreCollection<Option>;
+  Board: AngularFirestoreCollection<Board>;
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFirestore
@@ -23,8 +22,8 @@ export class DataService {
     this.Board = this.db.collection('board');
   }
 
-  getOptionsByBoardID(boardId: string): Observable<Option> {
-    return this.Options.doc<Option>(boardId).valueChanges();
+  getBoardByID(boardId: string): Observable<Board> {
+    return this.Board.doc<Board>(boardId).valueChanges();
   }
 
   createBoard(uid: string): Promise<any> {
