@@ -1,1 +1,22 @@
-<p>option-card works!</p>
+    <div class="container-fluid" >
+        <div class="row">
+            <div class=" m-auto-1 h-25 col-sm-12 col-md-10">
+                <mat-card>
+                    {{listing.name}}
+                </mat-card>
+            </div>
+            <div class="m-auto-auto col-sm-2 col-md-2 align-bottom">
+                <button mat-icon-button
+                (click)="upvote(listing);">
+                    <mat-icon>thumb_up</mat-icon>
+                </button>
+                {{listing.upvotes}}
+                <button mat-icon-button 
+                (click)="downvote(listing);">
+                    <mat-icon>thumb_down</mat-icon>
+                </button>
+                {{listing.downvotes}}
+            </div>
+        </div>
+    </div>
+

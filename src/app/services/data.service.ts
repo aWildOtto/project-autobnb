@@ -27,6 +27,6 @@ export class DataService {
   }
 
   createBoard(uid: string): Promise<any> {
-    return this.Board.doc(uid).set({ boardName: 'Untitled AirBnB plan' });
+    return this.Board.doc(uid).set({ name: 'Untitled AirBnB plan' });
   }
 }

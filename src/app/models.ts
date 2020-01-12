@@ -3,6 +3,12 @@ export class Vote {
 	optionId: string;
 	up: boolean;
 }
+
+export class Comment {
+	userId: string;
+	message: string;
+	date: Date;
+}
 export class User {
 	id: string;
 	votes: Vote[];
@@ -11,7 +17,7 @@ export class Board {
 	name: string;
 	description: string;
 	options: Option[];
-	Users: User[];
+	users: User[];
 }
 export class Option {
 	title: string;
@@ -21,4 +27,5 @@ export class Option {
 	description: string;
 	amenities: string[];
 	images: string[];
+	comments: Comment[];
 }
