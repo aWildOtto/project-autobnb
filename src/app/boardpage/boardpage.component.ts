@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { UserService } from '../services/user.service';
+import { DataService } from '../services/data.service';
+import { Board } from '../models';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 export interface sortOption {
   optName: string;
@@ -57,9 +62,24 @@ export class BoardpageComponent implements OnInit {
     addListing: [null, Validators.required, Validators.pattern(this.urlRegex)]
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  boardData: Observable<Board>;
+  constructor(
+    private us: UserService,
+    private ds: DataService,
+    private activeRoute: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) {
+    this.activeRoute.params.subscribe((url) => {
+      console.log(url);
+      this.boardData = this.ds.getBoardByID(url.id);
+      this.boardData.subscribe((data) => {
+        console.log(data);
+      });
+    });
+  }
 
   ngOnInit() {
+
   }
 
   submitForm() {
