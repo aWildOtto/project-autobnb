@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { boardListing } from '../boardpage/boardpage.component';
 
 @Component({
   selector: 'app-option-card',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./option-card.component.scss']
 })
 export class OptionCardComponent implements OnInit {
+  @Input() listing: boardListing;
 
   constructor() { }
 
