@@ -1,14 +1,16 @@
 import * as functions from 'firebase-functions';
 import * as puppeteer from 'puppeteer';
 
-export const scrapeFunc = functions.runWith({memory:'1GB'}).firestore.document('/board/{id}').onCreate(async(snapshot, context) => {
+export const scrapeFunc = functions.runWith({memory:'1GB'}).firestore.document('/board/{id}/options/{optionId}').onCreate(async(snapshot, context) => {
     const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
 
-    console.log(snapshot.data());
     console.log(context);
+    const url = snapshot.data()?.airbnbLink;
+    console.log(url);
+    if(!url) return;
     
     const page = await browser.newPage();
-    await page.goto('https://www.airbnb.ca/rooms/28050962?adults=2&check_in=2020-01-23&check_out=2020-01-31&source_impression_id=p3_1578806023_nUwipAthWSHZtrER');
+    await page.goto(url);
     
     const content = await page.content();
     
