@@ -1,1 +1,31 @@
-<p>boardpage works!</p>
+<div class="header">
+    <h1 class="project-title">{{projName}}</h1>
+    <h2 class="project-desc">{{projDesc}}</h2>
+    <mat-form-field>
+        <mat-label>SORT BY</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let option of sortOptions" [value]="option.optValue">
+                {{option.optName}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class="main-board" *ngFor="let listing of options">
+    <app-option-card [listing]="listing"></app-option-card>
+    <br>
+</div>
+
+<div class="footer">
+    <mat-card>
+        <form [formGroup]="addListForm" (ngSubmit)="submitForm()">
+            <mat-form-field>
+                <mat-label>Add Listing</mat-label>
+                <input type="url" formControlName="addListing" matInput placeholder="Listing URL">
+            </mat-form-field>
+                    <button mat-icon-button color="primary">
+                        <mat-icon>add</mat-icon>
+                    </button>
+        </form>
+
+    </mat-card>
+</div>
