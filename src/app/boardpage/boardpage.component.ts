@@ -7,6 +7,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./boardpage.component.scss']
 })
 export class BoardpageComponent implements OnInit {
+  projName = '';
 
   constructor(private us: UserService) { }
 
