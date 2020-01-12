@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
 
 export interface sortOption {
   optName: string;
@@ -50,12 +51,19 @@ export class BoardpageComponent implements OnInit {
     }
   ];
 
-  name = new FormControl('');
+  urlRegex = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
+  addListForm = this.formBuilder.group({
+    addListing: [null, Validators.required, Validators.pattern(this.urlRegex)]
+  });
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+  }
+
+  submitForm() {
+
   }
 
 }

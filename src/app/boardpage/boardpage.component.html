@@ -11,17 +11,21 @@
     </mat-form-field>
 </div>
 <div class="main-board" *ngFor="let listing of options">
-<app-option-card [listing]="listing"></app-option-card>
-<br>
+    <app-option-card [listing]="listing"></app-option-card>
+    <br>
 </div>
 
 <div class="footer">
     <mat-card>
-        <span> Add Listing </span>
-        <form>
-            <mat-form-field >
-                <input type="text" [formControl]="name" matInput placeholder="Favorite food">
+        <form [formGroup]="addListForm" (ngSubmit)="submitForm()">
+            <mat-form-field>
+                <mat-label>Add Listing</mat-label>
+                <input type="url" formControlName="addListing" matInput placeholder="Listing URL">
             </mat-form-field>
+                    <button mat-icon-button color="primary">
+                        <mat-icon>add</mat-icon>
+                    </button>
         </form>
+
     </mat-card>
 </div>

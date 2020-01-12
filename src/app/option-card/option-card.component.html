@@ -6,11 +6,13 @@
                 </mat-card>
             </div>
             <div class="m-auto-auto col-sm-2 col-md-2 align-bottom">
-                <button mat-icon-button color="primary">
+                <button mat-icon-button
+                (click)="upvote(listing);">
                     <mat-icon>thumb_up</mat-icon>
                 </button>
                 {{listing.upvotes}}
-                <button mat-icon-button color="primary">
+                <button mat-icon-button 
+                (click)="downvote(listing);">
                     <mat-icon>thumb_down</mat-icon>
                 </button>
                 {{listing.downvotes}}
